@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var studentInfo = new Array();
+            var studentInfos = new Array(studentInfo);
+            // for (let i = 1; i <= 5; i++) {
+            //     studentInfo = [];
+            //     do {
+            //         var studentId = prompt("nhập mã sinh viên " + i);
+            //         studentInfo.push(studentId);
+            //     } while (!studentId.startsWith("S"));
+            //     do {
+            //         var studentName = prompt("nhập tên sinh viên " + i);
+            //         studentInfo.push(studentName);
+            //     } while (studentName.length < 6 || studentName.length > 30);
+            //     do {
+            //         var age = +prompt("nhập tuổi sinh viên " + i);
+            //         studentInfo.push(age);
+            //     } while (age < 18 || age > 30);
+            //     do {
+            //         var mark_html = +prompt("nhập điểm html " + i);
+            //         studentInfo.push(mark_html);
+            //     } while (mark_html < 0 || mark_html > 10);
+            //     do {
+            //         var mark_css = +prompt("nhập điểm css " + i);
+            //         studentInfo.push(mark_css);
+            //     } while (mark_css < 0 || mark_css > 10);
+            //     do {
+            //         var mark_js = +prompt("nhập điểm js " + i);
+            //         studentInfo.push(mark_js);
+            //     } while (mark_js < 0 || mark_js > 10);
+            //     var avgMark = (mark_html + mark_css + mark_js) / 3;
+            //     studentInfo.push(avgMark);
+            //     var rank = "";
+            //     if (avgMark < 5) {
+            //         rank = "Yếu";
+            //     } else if (avgMark >= 5 && avgMark < 7) {
+            //         rank = "Trung bình";
+            //     } else if (avgMark >= 7 && avgMark < 8) {
+            //         rank = "Khá";
+            //     } else if (avgMark >= 8 && avgMark < 9) {
+            //         rank = "Giỏi";
+            //     } else {
+            //         rank = "Xuất sắc";
+            //     }
+            //     studentInfo.push(rank);
+            //     studentInfos.push(studentInfo);
+            // }
+            studentInfos = [
+                ["sv01", 20, 5, 6, 7, 6, "tb"],
+                ["sv01", 20, 5, 6, 7, 2, "tb"],
+                ["sv01", 20, 5, 6, 7, 4, "tb"],
+                ["sv01", 20, 5, 6, 7, 5, "tb"],
+                ["sv01", 20, 5, 6, 7, 8, "tb"],
+            ];
+            console.log("danh sách sinh viên: ", studentInfos);
+            const sortStudent = [[]];
+            var maxAvg = 0;
+            var index = 0;
+            for (let i = 0; i < studentInfos.length; i++) {
+                for (let j = 0; j < studentInfos.length; j++) {
+                    const avg = studentInfos[j][5];
+                    if (maxAvg < avg) {
+                        maxAvg = avg;
+                        index = j;
+                    }
+                }
+                const removed = studentInfos.splice(index, 1);
+                // sortStudent.push(removed);
+                console.log(removed);
+                console.log(studentInfos);
+            }
+            console.log("danh sách sinh viên2 : ", sortStudent);
+        </script>
+    </body>
+</html>
